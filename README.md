@@ -11,7 +11,7 @@ I come from finance, not from CS. That turns out to be the useful half: I can si
 
 ## Wealth Advisor Platform · in daily production use
 
-**The problem.** A financial advisor — not named here, for client confidentiality — kept his entire client book in around a hundred separate Excel spreadsheets — a different file per client, per product, per topic, no shared schema, no way to search across them. Answering "what does this family actually hold?" meant opening a dozen files and reconciling them by hand. His firm offers no tool that does this.
+**The problem.** A financial advisor — not named here, for client confidentiality — kept his entire client book in around a hundred separate Excel spreadsheets: a different file per client, per product, per topic, no shared schema, no way to search across them. Answering "what does this family actually hold?" meant opening a dozen files and reconciling them by hand. His firm offers no tool that does this.
 
 **What I built.** One local platform that ingests and normalises those spreadsheets into a single queryable model of clients, products and portfolios, plus the analysis he actually sells: an accumulation / decumulation simulator for funding a child's education, and a succession simulator that models what happens to a client's estate on death.
 
