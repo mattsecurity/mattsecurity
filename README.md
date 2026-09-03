@@ -19,6 +19,8 @@ I come from finance, not from CS. That turns out to be the useful half: I can si
 
 **Two decisions worth defending.** It holds real client financial PII under GDPR, held by a regulated professional, so nothing leaves the machine — no cloud database, no third-party service receiving client records. And it has zero dependencies and no build step: one HTML file that opens on a locked-down machine where nothing can be installed. A price bridge on localhost gives it live market data anyway, resolving ISINs to tickers, and falling back to the standard library when `pip install` is blocked.
 
+**Built to take a local model.** The expensive part of putting AI on top of private data is not the model, it is having the data in one shape, with stable identities, that a retrieval layer can query — and that work is already done here. The delivery pattern is proven too: the price bridge is a local process the browser talks to over `127.0.0.1`, doing what the browser cannot, with nothing leaving the machine. An open-weights model hosted on the same machine drops into that exact shape. Local inference is not a fallback here, it is the only lawful option: this data cannot be sent to anyone's API. The data model and the integration point are in place; the model layer is what I am building next.
+
 > Commercial product — source is private. Happy to walk through the code and architecture in a conversation.
 
 [**Read the case study →**](https://github.com/mattsecurity/advisor-platform) · `Vanilla JS · IndexedDB · File System Access API · Python · vector-clock sync`
@@ -42,12 +44,6 @@ The LLM call is the easy part. The work is everything around it: an onboarding t
 The generation is two-phase — a skeleton route first, then every day written in parallel against it, so you wait for the slowest day rather than the sum of them. Keys stay server-side and the edge functions accept only their own operations, so the browser cannot hand the model a prompt of its own.
 
 [**Read the case study →**](https://github.com/mattsecurity/havaly) · `TypeScript · Vite · Supabase · multi-provider LLM · Capacitor · offline PWA`
-
----
-
-## Local LLM over the advisor database · next
-
-A natural-language layer on the advisor platform, using a locally-hosted open-weights model: ask a question about the client book in plain Italian, get an answer, with no client data leaving the machine. It is the same problem banks and consultancies are working on right now — useful AI on top of data that regulation will not let you send to an API.
 
 ---
 
