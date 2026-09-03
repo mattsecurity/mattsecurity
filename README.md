@@ -29,7 +29,7 @@ I come from finance, not from CS. That turns out to be the useful half: I can si
 
 The simulators as a standalone app that runs on an iPad, so the advisor runs projections in front of a client without carrying a laptop. Same modelling core, second surface.
 
-[**Repo →**](https://github.com/mattsecurity/app-simulatore) · `JavaScript · offline-first`
+[**Repo →**](https://github.com/mattsecurity/app-simulatore) · `JavaScript · zero dependencies · Cloudflare Worker`
 
 ---
 
@@ -39,7 +39,9 @@ A trip planner that composes an itinerary from who you actually are — where yo
 
 The LLM call is the easy part. The work is everything around it: an onboarding that calibrates effort and pace instead of guessing taste, cost estimates computed from your actual departure city, and a provider-agnostic model layer so the generator is not married to one vendor. It pulls hotels, activities, places, maps and weather from a stack of third-party APIs, stays usable when a key is absent, and ships to the App Store through Capacitor.
 
-`TypeScript · Vite · Supabase · multi-provider LLM · Capacitor · unit-tested API layer`
+The generation is two-phase — a skeleton route first, then every day written in parallel against it, so you wait for the slowest day rather than the sum of them. Keys stay server-side and the edge functions accept only their own operations, so the browser cannot hand the model a prompt of its own.
+
+[**Read the case study →**](https://github.com/mattsecurity/havaly) · `TypeScript · Vite · Supabase · multi-provider LLM · Capacitor · offline PWA`
 
 ---
 
